@@ -6,8 +6,12 @@
     <title>Luis Mario's Portfolio</title>
     <link rel="stylesheet" href="portfolio.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <!--link href="https://fonts.googleapis.com/css2?family=Raleway|Nunito:wght@100;700&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"-->
+    <!--link href="https://fonts.googleapis.com/css2?family=Raleway|Nunito:wght@100;700&display=swap" rel="stylesheet"--> 
+    <meta http-equiv="Content-Type" content="text/html">
+    <!-- Load TensorFlow.js. This is required to use the qna model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+    <!-- Load the qna model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/qna"> </script>
 </head>
 <body>
     <a name="home"></a>
@@ -26,9 +30,9 @@
             </ul>
         </nav>
     </header>
-    <!--button id="dark-mode">
+    <button id="dark-mode">
         <div class="moon"></div>
-    </button-->
+    </button>
     <section class="content">
         <main>
             <h1>Hi, I'm <b>Luis Mario</b></h1>
@@ -104,7 +108,7 @@
                     <div class="md-details">
                         <h1>Descripción del proyecto</h1>
                         <p>Este proyecto tiene como finalidad replicar la interfaz del sitio web de Netflix. Se ha utilizado HTML Y CSS</p>
-                        <button id="md-close">X</button>
+                        <button class="md-close">&times;</button>
                         <a href="https://luism96xd.github.io/reto-netflix/" target="_blank">Go to the project site</a>
                     </div>
                 </div>
@@ -112,7 +116,6 @@
         </div>
         <div class="item">
             <a href="https://my-entertainment-place.blogspot.com/" target="_blank">
-                <!--img src="https://i.imgur.com/s8nxmwK.jpg" alt="My Entertainment Place"-->
                 <img src="images/My_Entertainment_place_blog.jpg" alt="My Entertainment Place"> 
             </a>
             <div class="description">My Entertainment Place</div>
@@ -124,7 +127,7 @@
                     <div class="md-details">
                         <h1>Descripción del proyecto</h1>
                         <p><b>My Entertainment Place</b> es mi blog personal en la plataforma de <b>Blogger</b> en donde trabajo como escritor de contenidos, escribo artículos que informen y entretengan a mis usuarios. Aquí se han utilizado varias de las técnicas de posicionamiento en los motores de búsqueda.</p>
-                        <button id="md-close">X</button>
+                        <button class="md-close">&times;</button>
                         <a href="https://my-entertainment-place.blogspot.com/" target="_blank">Go to the project site</a>
                     </div>
                 </div>
@@ -143,7 +146,7 @@
                     <div class="md-details">
                         <h1>Descripción del proyecto</h1>
                         <p>Este proyecto consiste en un formulario de inicio de sesión. <br> Si el usuario no tiene una cuenta, podrá ir a otro formulario de registro. Se ha utilizado HTML y CSS</p>
-                        <button id="md-close">X</button>
+                        <button class="md-close">&times;</button>
                         <a href="https://luism96xd.github.io/sign-in-sign-out/" target="_blank">Go to the project site</a>
                     </div>
                 </div>
@@ -162,17 +165,17 @@
                     <div class="md-details">
                         <h1>Descripción del proyecto</h1>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum quis fuga, error placeat laborum excepturi odio, blanditiis atque ex temporibus tempora natus! Corporis corrupti voluptatibus facere cumque dolore veritatis repudiandae!</p>
-                        <button id="md-close">X</button>
+                        <button class="md-close">&times;</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="item">
+        <div class="item" data-modal-target="#modal">
             <a href="https://my-entertainment-place.blogspot.com/" target="_blank">
                 <img src="img.png" alt="Netflix"> 
             </a>
             <div class="description">Descripción</div>
-            <div class="md">
+            <div class="md" id="modal">
                 <div class="md-content">
                     <div class="md-img">
                         <img id="details-img" src="img.png" alt="Netflix Clone">
@@ -180,28 +183,30 @@
                     <div class="md-details">
                         <h1>Descripción del proyecto</h1>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum quis fuga, error placeat laborum excepturi odio, blanditiis atque ex temporibus tempora natus! Corporis corrupti voluptatibus facere cumque dolore veritatis repudiandae!</p>
-                        <button id="md-close">X</button>
+                        <button class="md-close">&times;</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="item">
-            <a href="https://my-entertainment-place.blogspot.com/" target="_blank">
+            <img src="img.png" alt="Netflix"> 
+            <!--a href="https://my-entertainment-place.blogspot.com/" target="_blank">
                 <img src="img.png" alt="Netflix"> 
-            </a>
+            </a-->
             <div class="description">Descripción</div>
             <div class="md">
                 <div class="md-content">
+                    <button class="md-close">&times;</button>
                     <div class="md-img">
                         <img id="details-img" src="img.png" alt="Netflix Clone">
                     </div>
                     <div class="md-details">
                         <h1>Descripción del proyecto</h1>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum quis fuga, error placeat laborum excepturi odio, blanditiis atque ex temporibus tempora natus! Corporis corrupti voluptatibus facere cumque dolore veritatis repudiandae!</p>
-                        <button id="md-close">X</button>
                     </div>
                 </div>
             </div>
+            <div id="overlay"></div>
         </div>
 
     </section>
