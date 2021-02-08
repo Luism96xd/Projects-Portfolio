@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="portfolio.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!--link href="https://fonts.googleapis.com/css2?family=Raleway|Nunito:wght@100;700&display=swap" rel="stylesheet"--> 
-    <meta http-equiv="Content-Type" content="text/html">
-    <!-- Load TensorFlow.js. This is required to use the qna model. -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
-    <!-- Load the qna model. -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/qna"> </script>
 </head>
 <body>
     <a name="home"></a>
@@ -96,14 +91,12 @@
     </div>    
     <section class="projects">
         <div class="item">
-            <a href="https://luism96xd.github.io/reto-netflix/" target="_blank">
-                <img src="/reto-netflix/design/netflix.png" alt="Netflix"> 
-            </a>
+            <img src="images/netflix.png" alt="Netflix"> 
             <div class="description">Netflix Clone</div>
             <div class="md">
                 <div class="md-content">
                     <div class="md-img">
-                        <img id="details-img" src="/reto-netflix/design/netflix.png" alt="Netflix Clone">
+                        <img id="details-img" src="images/netflix.png" alt="Netflix Clone">
                     </div>
                     <div class="md-details">
                         <h1>Descripción del proyecto</h1>
@@ -115,9 +108,7 @@
             </div>
         </div>
         <div class="item">
-            <a href="https://my-entertainment-place.blogspot.com/" target="_blank">
-                <img src="images/My_Entertainment_place_blog.jpg" alt="My Entertainment Place"> 
-            </a>
+            <img src="images/My_Entertainment_place_blog.jpg" alt="My Entertainment Place"> 
             <div class="description">My Entertainment Place</div>
             <div class="md">
                 <div class="md-content">
@@ -134,9 +125,7 @@
             </div>
         </div>
         <div class="item">
-            <a href="https://luism96xd.github.io/sign-in-sign-out/" target="_blank">
-                <img src="images/Log_in_form.jpg" alt="Log In Form"> 
-            </a>
+            <img src="images/Log_in_form.jpg" alt="Log In Form"> 
             <div class="description">Log in Form</div>
             <div class="md">
                 <div class="md-content">
@@ -153,29 +142,29 @@
             </div>
         </div>
         <div class="item">
-            <a href="https://my-entertainment-place.blogspot.com/" target="_blank">
-                <img src="img.png" alt="Netflix"> 
-            </a>
-            <div class="description">Descripción</div>
+            <img src="images/javascript-fullstack-app.png" alt="Netflix"> 
+            <div class="description">Javascript Fullstack App</div>
             <div class="md">
                 <div class="md-content">
                     <div class="md-img">
-                        <img id="details-img" src="img.png" alt="Netflix Clone">
+                        <img id="details-img" src="images/javascript-fullstack-app.png" alt="Javascript FullStack App">
                     </div>
                     <div class="md-details">
                         <h1>Descripción del proyecto</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum quis fuga, error placeat laborum excepturi odio, blanditiis atque ex temporibus tempora natus! Corporis corrupti voluptatibus facere cumque dolore veritatis repudiandae!</p>
+                        <p>En <b>Javascript Books</b> se aplicaron conocimientos de FrontEnd con HTML, CSS + Bootstrap, Javascript y BackEnd con el uso de Node.JS. También se usó la herramienta de empaquetamiento Webpack y bases de datos con MongoDB, desplegado en la nube gracias a Heroku.</p>
                         <button class="md-close">&times;</button>
+                        <a href="https://javascript-fullstack-luis.herokuapp.com/" target="_blank">Go to the project site</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="item" data-modal-target="#modal">
-            <a href="https://my-entertainment-place.blogspot.com/" target="_blank">
-                <img src="img.png" alt="Netflix"> 
-            </a>
+            <img src="img.png" alt="Netflix"> 
+            <!--a href="https://my-entertainment-place.blogspot.com/" target="_blank">
+            <img src="img.png" alt="Netflix"> 
+            </a-->
             <div class="description">Descripción</div>
-            <div class="md" id="modal">
+            <div class="md">
                 <div class="md-content">
                     <div class="md-img">
                         <img id="details-img" src="img.png" alt="Netflix Clone">
@@ -189,20 +178,21 @@
             </div>
         </div>
         <div class="item">
-            <img src="img.png" alt="Netflix"> 
+            <img src="images/Regression-tensorflowjs.png" alt="Linear Regression Tensorflow.JS">
             <!--a href="https://my-entertainment-place.blogspot.com/" target="_blank">
                 <img src="img.png" alt="Netflix"> 
             </a-->
-            <div class="description">Descripción</div>
+            <div class="description">Linear Regression Tensorflow.JS</div>
             <div class="md">
                 <div class="md-content">
                     <button class="md-close">&times;</button>
                     <div class="md-img">
-                        <img id="details-img" src="img.png" alt="Netflix Clone">
+                        <img id="details-img" src="images/Regression-tensorflowjs.png" alt="Linear Regression Tensorflow JS">
                     </div>
                     <div class="md-details">
                         <h1>Descripción del proyecto</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum quis fuga, error placeat laborum excepturi odio, blanditiis atque ex temporibus tempora natus! Corporis corrupti voluptatibus facere cumque dolore veritatis repudiandae!</p>
+                        <p>Este es un modelo de regresión Lineal hecho con Tensorflow.JS. Tu subes un archivo .csv que contenga dos columnas de atributos y el modelo aprenderá las relaciones entre ambas variables y podras predecir una variable a partir de la otra.</p>
+                        <a href="https://luism96xd.github.io/linear-regression-tensorflowjs/" target="_blank">Go to the project site</a>
                     </div>
                 </div>
             </div>

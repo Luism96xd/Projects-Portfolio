@@ -1,5 +1,4 @@
 const nav_items = document.getElementById('nav-items');
-const item_img = document.getElementById('item-img');
 
 const details_img = document.getElementById('details-img');
 const btn = document.getElementById("dark-mode");
@@ -9,72 +8,37 @@ const items = document.getElementsByClassName("item");
 const buttons = document.querySelectorAll(".md-close");
 const overlay = document.getElementById("overlay");
 
-const question_input = document.getElementById("question");
-const ask_btn = document.getElementById("button");
-
-ask_btn.addEventListener('click', getAnswer);
-
-question_input.addEventListener('change', update);
-
-var question = "";
-function update(){
-  question = question_input.value;
-}
-
-function getAnswer(){
-  const passage = "My name is Luis Mario. This is my personal portfolio. Here I show you all my projects. I'm 19 years old. I'm a student and a programmer. I live in Venezuela and I can design websites for you and I can write blog post. I can build simple Machine Learning models.";
-  console.log(passage);
-  console.log(question);
-  // Load the model.
-  qna.load().then(model => {
-    // Find the answers
-    model.findAnswers(question, passage).then(answers => {
-      console.log('Answers: ', answers);
-      question_input.parentElement.innerHTML += `<p>${answers[0].text}</p>`;
-      question_input.value = "";
-    });
-  });
-}
-
 for(let i=0; i < items.length; i++){
   items[i].addEventListener('click', function (){
-    const modal = items[i].children[2];
+    const modal = this.querySelector('.md');
     openModal(modal);
   }, false);
 }
 
 buttons.forEach(button => {
   button.addEventListener('click', function (){
-     const modal = button.closest('.md.md-show');
-     closeModal(modal);
+    console.log("clicked"); 
+    const modal = button.closest('.md .md-show');
+    closeModal(modal);
   });
-})
-console.log(buttons);
+}, false);
 
 overlay.addEventListener('click', function (){
+  console.log("clicked overlay");
   const modals = document.querySelectorAll(".md.md-show");
+
   modals.forEach(modal => {
     closeModal(modal);
   });
-});
+}, false);
 
 function openModal(modal){
-  if(modal == null){
-    return;
-  }
-  if (!modal.classList.contains('md-show')){
-    modal.classList.add("md-show"); //toggle
-    overlay.classList.add("md-show");
-  }
+  modal.classList.add("md-show"); //toggle
+  overlay.classList.add("md-show");
 }
 function closeModal(modal){
-  if(modal == null){
-    return;
-  }
-  if (!modal.classList.contains('md-show')){
-    modal.classList.remove("md-show");
-    overlay.classList.remove("md-show");
-  }
+  modal.classList.remove("md-show");
+  overlay.classList.remove("md-show");
 }
 window.addEventListener('scroll', () => {
     document.body.style.setProperty('--scroll',window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
@@ -113,6 +77,7 @@ btn.addEventListener("click", function() {
     if (prefersDarkScheme.matches) {
       // ...then apply the .light-theme class to override those styles
       document.body.classList.toggle("light-theme");
+      document.getElementsByClassName("moon")[0].classList.toggle(".dark-mode");
       var theme = document.body.classList.contains("light-mode") ? "light" : "dark";
       // Otherwise...
     } else {
