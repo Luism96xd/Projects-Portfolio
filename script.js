@@ -1,45 +1,62 @@
 const nav_items = document.getElementById('nav-items');
-
-const details_img = document.getElementById('details-img');
 const btn = document.getElementById("dark-mode");
 const title = document.getElementById("projects-title");
-
-const items = document.getElementsByClassName("item");
 const buttons = document.querySelectorAll(".md-close");
-const overlay = document.getElementById("overlay");
 
-for(let i=0; i < items.length; i++){
-  items[i].addEventListener('click', function (){
-    const modal = this.querySelector('.md');
-    openModal(modal);
-  }, false);
+// Stack of modals
+let currentlyOpenModals = [];
+const noModalsOpen = () => !currentlyOpenModals.length;
+
+const modalTriggers = document.querySelectorAll(".item");
+
+modalTriggers.forEach(modalTrigger => {
+  modalTrigger.addEventListener('click', clickEvent => {
+    console.log("clicked!")
+    const trigger = clickEvent.target;
+    console.log(trigger);
+    const modalId = trigger.getAttribute("data-modal-id");
+    console.log(modalId);
+    openModal(modalId);
+  });
+});
+
+function openModal(modalId){
+  const modalWrapper = document.getElementById(modalId);
+  modalWrapper.classList.add("visible");
+  currentlyOpenModals.push(modalWrapper);
+}
+function closeModal(){
+  if (noModalsOpen()) {
+    return;
+  }
+  const modalWrapper = currentlyOpenModals[currentlyOpenModals.length - 1];
+  modalWrapper.classList.remove("visible");
+  currentlyOpenModals.pop();
 }
 
 buttons.forEach(button => {
   button.addEventListener('click', function (){
     console.log("clicked"); 
-    const modal = button.closest('.md .md-show');
+    const modal = button.closest('.modal-wrapper.visible');
     closeModal(modal);
   });
 }, false);
 
-overlay.addEventListener('click', function (){
-  console.log("clicked overlay");
-  const modals = document.querySelectorAll(".md.md-show");
 
-  modals.forEach(modal => {
-    closeModal(modal);
+const modalWrappers = document.querySelectorAll(".modal-wrapper");
+modalWrappers.forEach(modalWrapper => {
+  modalWrapper.addEventListener("click", () => {
+    closeModal();
   });
-}, false);
+});
 
-function openModal(modal){
-  modal.classList.add("md-show"); //toggle
-  overlay.classList.add("md-show");
-}
-function closeModal(modal){
-  modal.classList.remove("md-show");
-  overlay.classList.remove("md-show");
-}
+document.body.addEventListener("keyup", keyEvent => {
+  if (keyEvent.key === "Escape") {
+    closeModal();
+  }
+});
+
+
 window.addEventListener('scroll', () => {
     document.body.style.setProperty('--scroll',window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
     /*console.log(document.body.style.getPropertyValue('--scroll'));*/

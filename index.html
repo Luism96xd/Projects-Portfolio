@@ -6,7 +6,6 @@
     <title>Luis Mario's Portfolio</title>
     <link rel="stylesheet" href="portfolio.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <!--link href="https://fonts.googleapis.com/css2?family=Raleway|Nunito:wght@100;700&display=swap" rel="stylesheet"--> 
 </head>
 <body>
     <a name="home"></a>
@@ -90,11 +89,11 @@
         </svg>  
     </div>    
     <section class="projects">
-        <div class="item">
-            <img src="images/netflix.png" alt="Netflix"> 
+        <div class="item" data-modal-id="modal1">
+            <img src="images/netflix.png" alt="Netflix" data-modal-id="modal1">  
             <div class="description">Netflix Clone</div>
-            <div class="md">
-                <div class="md-content">
+            <div class="modal-wrapper" id="modal1">
+                <div class="modal-window">
                     <div class="md-img">
                         <img id="details-img" src="images/netflix.png" alt="Netflix Clone">
                     </div>
@@ -107,11 +106,12 @@
                 </div>
             </div>
         </div>
-        <div class="item">
-            <img src="images/My_Entertainment_place_blog.jpg" alt="My Entertainment Place"> 
+
+        <div class="item" data-modal-id="modal2">
+            <img src="images/My_Entertainment_place_blog.jpg" alt="My Entertainment Place" data-modal-id="modal2"> 
             <div class="description">My Entertainment Place</div>
-            <div class="md">
-                <div class="md-content">
+            <div class="modal-wrapper" id="modal2">
+                <div class="modal-window">
                     <div class="md-img">
                         <img id="details-img" src="images/My_Entertainment_place_blog.jpg" alt="My Entertainment Place">
                     </div>
@@ -124,11 +124,11 @@
                 </div>
             </div>
         </div>
-        <div class="item">
-            <img src="images/Log_in_form.jpg" alt="Log In Form"> 
+        <div class="item" data-modal-id="modal3">
+            <img src="images/Log_in_form.jpg" alt="Log In Form" data-modal-id="modal3"> 
             <div class="description">Log in Form</div>
-            <div class="md">
-                <div class="md-content">
+            <div class="modal-wrapper" id="modal3">
+                <div class="modal-window">
                     <div class="md-img">
                         <img id="details-img" src="images/Log_in_form.jpg" alt="Iniciar Sesión y Registrarse">
                     </div>
@@ -141,11 +141,11 @@
                 </div>
             </div>
         </div>
-        <div class="item">
-            <img src="images/javascript-fullstack-app.png" alt="Netflix"> 
+        <div class="item" data-modal-id="modal4">
+            <img src="images/javascript-fullstack-app.png" alt="Javascript FullStack" data-modal-id="modal4"> 
             <div class="description">Javascript Fullstack App</div>
-            <div class="md">
-                <div class="md-content">
+            <div class="modal-wrapper" id="modal4">
+                <div class="modal-window">
                     <div class="md-img">
                         <img id="details-img" src="images/javascript-fullstack-app.png" alt="Javascript FullStack App">
                     </div>
@@ -158,33 +158,28 @@
                 </div>
             </div>
         </div>
-        <div class="item" data-modal-target="#modal">
-            <img src="img.png" alt="Netflix"> 
-            <!--a href="https://my-entertainment-place.blogspot.com/" target="_blank">
-            <img src="img.png" alt="Netflix"> 
-            </a-->
-            <div class="description">Descripción</div>
-            <div class="md">
-                <div class="md-content">
+        <div class="item" data-modal-id="modal5">
+            <img src="images/NotesApp_chatbot.png" alt="Notes App + Chatbot" data-modal-id="modal5"> 
+            <div class="description">Notes App + Chatbot</div>
+            <div class="modal-wrapper" id="modal5">
+                <div class="modal-window">
                     <div class="md-img">
-                        <img id="details-img" src="img.png" alt="Netflix Clone">
+                        <img id="details-img" src="images/NotesApp_chatbot.png" alt="Notes App + GPT-3 Chatbot">
                     </div>
                     <div class="md-details">
                         <h1>Descripción del proyecto</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum quis fuga, error placeat laborum excepturi odio, blanditiis atque ex temporibus tempora natus! Corporis corrupti voluptatibus facere cumque dolore veritatis repudiandae!</p>
+                        <p>Este proyecto consiste en una Lista de tareas o To-DO list donde puedes guardar tus notas. Pero, posee un chatbot impulsado por el modelo <b>GPT-3</b> de la API de <b>OPEN AI</b>, capaz de responderte cualquier pregunta. Posee un sistema de autenticación y registro. Se utilizó HTML, CSS, Bootstrap, Python, Flask y bases de Datos SQLite, desplegado en la nube gracias a Heroku.</p>
                         <button class="md-close">&times;</button>
+                        <a href="https://ask-me-anything-notepad.herokuapp.com/" target="_blank">Go to the project site</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="item">
-            <img src="images/Regression-tensorflowjs.png" alt="Linear Regression Tensorflow.JS">
-            <!--a href="https://my-entertainment-place.blogspot.com/" target="_blank">
-                <img src="img.png" alt="Netflix"> 
-            </a-->
+        <div class="item" data-modal-id="modal6">
+            <img src="images/Regression-tensorflowjs.png" alt="Linear Regression Tensorflow.JS" data-modal-id="modal6">
             <div class="description">Linear Regression Tensorflow.JS</div>
-            <div class="md">
-                <div class="md-content">
+            <div class="modal-wrapper" id="modal6">
+                <div class="modal-window">
                     <button class="md-close">&times;</button>
                     <div class="md-img">
                         <img id="details-img" src="images/Regression-tensorflowjs.png" alt="Linear Regression Tensorflow JS">
@@ -228,9 +223,6 @@
             glare: true,
             "max-glare": 1,
         });
-        
-        //It also supports NodeList
-        VanillaTilt.init(document.querySelectorAll(".skill-item"));
     </script>
 </body>
 </html>

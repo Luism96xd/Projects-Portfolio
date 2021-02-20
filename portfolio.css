@@ -329,47 +329,52 @@ main h1 b{
     }
 }
 /*----------- FIN DEL MENÚ LATERAL ------------*/
-.md{
-    position: fixed;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    visibility: hidden;
-    width: 70vw;
-    height: 70vh;
-    margin: 0 auto;
-    z-index: 10;
-    display: grid;
-    justify-items: center;
+
+
+.modal-wrapper {
+    background-color: rgba(100, 100, 100, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
 }
-.md-content{
-    position: relative;
+.modal-wrapper.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-window{
+    width: 80%;
+    height: 80vh;
     display: grid;
     grid-template-columns: minmax(256px, 1fr) 320px;
-    background:rgb(65, 130, 250);
-    z-index: 1000;
-    width: 100%;
-    margin: 0 auto;
-    height: 100%;
-    box-shadow: 0px 2px 20px #aaa;
+    background-color: rgb(65, 130, 250);
+    border-radius: 8px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    transform: scale(0);
+    transition: 0.2s ease-in-out all;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    min-width: 320px;
 }
-.md.md-show {
-    visibility: visible;
-    animation: animation 1s;
+.modal-wrapper.visible .modal-window {
+    transform: scale(1);
 }
-/*.item:hover .md-content{
-    visibility: visible;
-    animation: animation 1s;
-}*/
+
 .md-img{
     overflow:hidden;
     width: 100%;
     height:100%;
     grid-column: 1/2;
+    border-radius: 8px 0 0 8px;
 }
 .md-details{
     background: #f2fdff;
@@ -379,6 +384,7 @@ main h1 b{
     padding: 32px;
     grid-column: 2/3;
     position: relative;
+    border-radius: 0px 8px 8px 0px;
 }
 .md-close{
     z-index: 30;
@@ -387,15 +393,19 @@ main h1 b{
     position: absolute;
     top: 8px;
     right: 8px;
-    background:none;
     font-size: 1.5em;
+    padding: 0.2em;
     border: none;
+    background: transparent;
     color: #555;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     cursor:pointer;
+}
+.md-close:hover {
+    color: black;
 }
 .md-details h1{
     margin-bottom: 12px;
@@ -410,21 +420,7 @@ main h1 b{
     object-position: top;
     aspect-ratio: attr(width) / attr(height);
 }
-#overlay{
-    position: fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background-color: rgba(0,0,0,0.5);
-    pointer-events: none;
-    opacity:0;
-}
-#overlay.md-show{
-    opacity: 1;
-    pointer-events: all;
-    filter: blur(1px);
-}
+
 @keyframes animation{
     0%{
         transform: scale(0) rotateY(180deg) translate(-50%,-50%);;
@@ -435,7 +431,6 @@ main h1 b{
         opacity: 1;
     }
 }
-
 
 @media (max-width: 952px){
     label.logo{
@@ -607,8 +602,8 @@ main h1 b{
     position: fixed;
     top: 96px;
     left: 8px;
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     border: none;
     outline: none;
     display:flex;
@@ -617,22 +612,13 @@ main h1 b{
     background: none;
     cursor: pointer;
 }
-.moon{
-    position: relative;
-    width: 32px;
+.moon {
+    margin-left: -20px;
+    margin-top: -20px;
     height: 32px;
+    width: 32px;
     border-radius: 50%;
-    background: #333;
-}
-.moon::after{
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: 35%;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: white;
+    box-shadow: 8px 8px 0 0 #111;
 }
 .title-container{
     height: 100px;
@@ -645,19 +631,13 @@ body.dark-theme {
     color: #fff;
     background: #323232;
 }
-.moon.dark-theme{
-    background: white;
-}
-.moon::after.dark-theme{
-    background: #333;
-}
 @media (prefers-color-scheme: dark) {
     /* defaults to dark theme */
     body{ 
       color: #fff;
       background: #323232;
     }
-    .content h1,p{
+    main h1, p{
         color: #eee;
     }
     .md .md-content, .md-details{
@@ -672,9 +652,6 @@ body.dark-theme {
         color: #80efff;
     }
     .moon{
-        background: white !important;
-    }
-    .moon::after{
-        background: #333 !important;
+        box-shadow: 15px 15px 0 0 #d0d5d2;
     }
 }
