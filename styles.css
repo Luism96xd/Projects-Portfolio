@@ -1,0 +1,389 @@
+*{
+    margin:0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+/*Barra de navegación*/
+nav{
+    background: linear-gradient(45deg, #76bcfd, #dc77ff);
+    height: 80px;
+    width: 100%;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0px 4px 4px #aaa;
+    font-family: 'Raleway', sans-serif;
+}
+label.logo{
+    color: #fff;
+    padding: 0 64px;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 80px;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+    z-index: 999;
+    position: sticky;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    position: relative;
+    text-align: center;
+}
+
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+nav ul li a:active, nav ul li a:hover{
+    color: #fbff00;
+}
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+    user-select: none;
+}
+
+#check{
+    display: none;
+    user-select: none;
+}
+.contact-box{
+    width: 100%;
+    height: auto;
+    padding: 64px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #222;
+}
+.contact-box h2{
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+.contact-form{
+    width: 80%;
+    font-family: "Raleway", sans-serif;
+    display: grid;
+    font-size: 1.2rem;
+    color:white;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(48px, 1fr));
+}
+.contact-form input{
+    width: 100%;
+    height: 40px;
+    border: 2px solid white;
+    margin-bottom: 40px;
+    padding: 8px 32px;
+    font-size: 1.2rem;
+}
+.contact-form label{
+    width: 100%;
+    margin-bottom: 16px;
+}
+.contact-form button{
+    width: 100%;
+    height: 40px;
+    padding: 8px;
+    margin-bottom: 16px;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+/*Fin de la Barra de navegación*/
+
+.about{
+    width: 100%;
+    height: 400px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-gap: 48px;
+    font-family: "Poppins",sans-serif; 
+}
+.about div h2{
+    width: 100%;
+    text-align: center;
+}
+.skills{
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+    grid-gap:32px;
+    grid-template-rows: repeat(2, minmax(128px, 1fr));
+}
+.skill-item h2{
+    text-align: center;
+}
+
+.about img, .skill-item img{
+    width: 100%;
+    aspect-ratio: attr(width) / attr(height);
+}
+.about .photo{
+    border-radius: 16px;
+}
+.skill-item{
+    width: 100%;
+    max-width: 128px;
+    height: 128px;
+    border: 2px solid #222;
+    background: rgba(255,255,255,0.1);
+    box-shadow: 10px 10px 20px rgba(20,20,20,0.1);
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 32px;
+    justify-content: center;
+}
+/*-------- ESTILOS DE LOS PROYECTOS -------*/
+
+.projects{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr); 
+    width: 80vw;
+    padding: 32px 48px;
+    grid-gap: 48px;
+    margin: 0 auto;
+    height: auto;
+}
+.item{
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    display: grid;
+    grid-template-rows: 80% 20%;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px #aaa;
+}
+.item > img{
+    width: 100%;
+    height: 256px;
+    object-fit: cover; /*fill none cover contain scale down*/
+    object-position: top; /*top left right center*/
+    /*aspect-ratio: attr(width) / attr(height);
+    background-attachment: fixed;
+    background-size: cover;
+    background-origin: content-box;
+    background-position: center;*/
+}
+.item .description{
+    padding: 16px;
+    color: #FFF;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    text-align: center;
+}
+/*-------- FIN DE LOS PROYECTOS -------*/
+
+.modal-wrapper {
+    background-color: rgba(100, 100, 100, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+}
+.modal-wrapper.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-window{
+    width: 80%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: minmax(256px, 1fr) 320px;
+    background-color: rgb(65, 130, 250);
+    border-radius: 8px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    transform: scale(0);
+    transition: 0.2s ease-in-out all;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.modal-wrapper.visible .modal-window {
+    transform: scale(1);
+}
+
+.md-img{
+    overflow:hidden;
+    width: 100%;
+    height:100%;
+    grid-column: 1/2;
+    border-radius: 8px 0 0 8px;
+}
+.md-details{
+    background: #f2fdff;
+    width: 100%;
+    color: #000;
+    height: 100%;
+    padding: 32px;
+    grid-column: 2/3;
+    position: relative;
+    border-radius: 0px 8px 8px 0px;
+}
+
+.md-close{
+    z-index: 30;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 1.5em;
+    padding: 0.2em;
+    border: none;
+    background: transparent;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor:pointer;
+}
+.md-close:hover {
+    color: black;
+}
+.md-details h1{
+    margin-bottom: 12px;
+}
+.md-details p{
+    line-height: 32px;
+}
+.md-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    aspect-ratio: attr(width) / attr(height);
+}
+
+@keyframes animation{
+    0%{
+        transform: scale(0) rotateY(180deg) translate(-50%,-50%);;
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1) rotate(0deg) translate(-50%,-50%);;
+        opacity: 1;
+    }
+}
+/*Fin del las ventanas emergentes*/
+
+.projects{
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 1000px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+    .projects{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 1fr; 
+        grid-gap: 32px;
+    }
+    .about{
+        height: auto;
+    }
+}
+
+.proyectos{ 
+    width: 100%;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.projects h2{
+    width: 100%;
+    text-align: center;
+}
+@media (max-width: 858px){
+    .checkbtn{
+        display: block;
+    }
+    nav ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #232b3b;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    nav ul li a:hover, nav ul li a:active{
+        background: none;
+        color:rgb(35, 75, 250);
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+    .contact-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .skills{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 16px;
+        overflow-y: scroll;
+    }
+    .projects{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .item{
+        max-width: 256px;
+    }
+}
